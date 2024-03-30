@@ -4,10 +4,7 @@ from dotenv import load_dotenv
 load_dotenv(verbose=True)
 
 class Config(object):
-    ENV = os.getenv('ENV')
-    CSRF_ENABLED = True
-    SECRET_KEY = os.getenv('SECRET_KEY')
-    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    pass
 
 class devConfig(Config):
     pass

@@ -1,7 +1,8 @@
 from service.tracking.model import model
 from service import util
+import requests
 import cv2
-
+import time
 
 class track_service:
     def __init__(self):
@@ -27,8 +28,22 @@ class track_service:
 
     def get_result(self, source):
         self.source = source
+        save_path = './service/video/'
+        filename = source.split('/')[-1]
+        
+        start = time.time()
+        with requests.get(source, stream=True) as r:
+            p = 0
+            with open(save_path+filename, 'wb') as f:
+                for chunk in r.iter_content(chunk_size=100*1024*1024):
+                    p+=1
+                    print(p)
+                    f.write(chunk)
+        end = time.time()
+        print(end-start)
         result = {'data': []}
-        cap = cv2.VideoCapture(self.source)
+         
+        cap = cv2.VideoCapture(save_path+filename)
 
         frame_num = 0
         defined = False
