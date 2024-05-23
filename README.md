@@ -138,7 +138,7 @@
 
 ## :tools: 아키텍처
 
-![아키텍처](/uploads/76710d135cab9ea33af88b156f57ed51/아키텍처.PNG)
+![아키텍처](./exec/imgs/image.png)
 
 ## :desktop: 화면 정의서
 
